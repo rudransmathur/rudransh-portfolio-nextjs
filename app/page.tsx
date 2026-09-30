@@ -21,7 +21,7 @@ Trained on various ensemble models like Random Forest Regressor, CatBoost Regres
 
 Got a R2 Score of 0.62 on test dataset using XGBoost and ranked 190 out of 1700 participants.`,
     highlight: "R2 Score of 0.62  ·  Rank 190/1700",
-    link: github,
+    link: "https://github.com/rudransmathur/Engage2Value",
   },
   {
     number: "02",
@@ -36,7 +36,7 @@ Got a R2 Score of 0.62 on test dataset using XGBoost and ranked 190 out of 1700 
       Among these models, AST gave the best accuracy of 91% and least validation loss of 0.41.
 `,
     highlight: "91% accuracy · AST",
-    link: github,
+    link: "https://github.com/rudransmathur/MessyMashupProject",
   },
   {
     number: "03",
@@ -49,7 +49,7 @@ Got a R2 Score of 0.62 on test dataset using XGBoost and ranked 190 out of 1700 
       Implemented role-based access control, REST APIs, caching, and automated background tasks for efficient healthcare operations.
 `,
     highlight: "Redis + Celery",
-    link: github,
+    link: "https://github.com/rudransmathur/HMS_MAD_2",
   },
   {
     number: "04",
@@ -62,7 +62,7 @@ Got a R2 Score of 0.62 on test dataset using XGBoost and ranked 190 out of 1700 
 The application required features such as user authentication, campaign and ad request management, and search functionalities for sponsors and influencers.
 `,
     highlight: "Backend development",
-    link: github,
+    link: "https://github.com/rudransmathur/influencer-sponsor-platf",
   },
   {
     number: "05",
@@ -72,7 +72,7 @@ The application required features such as user authentication, campaign and ad r
     description:
       "Automated the solving of graded assignments using an LLM-powered API that processes questions and file attachments, through data processing and large language models to replicate human problem-solving capabilities.",
     highlight: "LLM-powered workflow",
-    link: github,
+    link: "https://github.com/rudransmathur/TDS_LLM_app",
   },
   {
     number: "06",
@@ -82,7 +82,7 @@ The application required features such as user authentication, campaign and ad r
     description:
       "Built a Flask-based web app to predict customer churn using Random Forest, Logistic Regression, and KNN. Combined the predictions manually through accuracy-weighted voting and enabled real-time predictions through HTML interface.",
     highlight: "Churn prediction",
-    link: github,
+    link: "https://github.com/Shru-10p/ChurnPrediction",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function Home() {
 
   useEffect(() => {
     const onScroll = () => {
-      const ids = ["home", "work", "experience", "skills", "about", "contact"];
+          const ids = ["home", "about", "achievements", "work", "experience", "skills", "contact"];
       const current = ids.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
@@ -168,7 +168,7 @@ export default function Home() {
         </button>
 
         <div className={`navLinks ${menuOpen ? "open" : ""}`}>
-          {["home", "work", "experience", "skills", "about", "contact"].map((id) => (
+          {["home", "about", "achievements", "work", "experience", "skills", "contact"].map((id) => (
             <button
               key={id}
               className={active === id ? "active" : ""}
@@ -200,8 +200,14 @@ export default function Home() {
               <button className="primary" onClick={() => scrollTo("work")}>
                 Explore my work <span>↗</span>
               </button>
+              <a className="secondary" href={linkedin} target="_blank" rel="noreferrer">
+                LinkedIn <span>↗</span>
+              </a>
               <a className="secondary" href={github} target="_blank" rel="noreferrer">
                 GitHub <span>↗</span>
+              </a>
+              <a className="secondary" href={kaggle} target="_blank" rel="noreferrer">
+                Kaggle <span>↗</span>
               </a>
             </div>
           </div>
@@ -250,11 +256,33 @@ export default function Home() {
             taking an unfamiliar problem, learning what I need, building a
             working prototype and then improving it through experimentation.
           </p>
-          <h2> Achivements </h2>
-          <div className="stats">
-            <div><strong>91%</strong><span>Best audio-model accuracy</span></div>
-            <div><strong>87%</strong><span>Best balanced accuracy</span></div>
-            <div><strong>2</strong><span>Institutes · MIT Manipal + IITM</span></div>
+          <div id="achievements" className="achievementHeader">
+            <p className="sectionKicker">SELECTED RESULTS</p>
+            <h2>Achievements.</h2>
+          </div>
+          <div className="achievementGrid">
+            <article className="achievementCard">
+              <div className="achievementTop">
+                <span className="achievementIndex">01</span>
+                <span className="achievementType">AI RESEARCH</span>
+              </div>
+              <h3>Mitosis Domain Generalization 2025 Challenge</h3>
+              <div className="achievementResult">
+                <strong>0.76</strong>
+                <span>F1-score · 11th / 32 teams</span>
+              </div>
+            </article>
+            <article className="achievementCard">
+              <div className="achievementTop">
+                <span className="achievementIndex">02</span>
+                <span className="achievementType">KAGGLE COMPETITION</span>
+              </div>
+              <h3>Engage2Value</h3>
+              <div className="achievementResult">
+                <strong>190th</strong>
+                <span>out of 1,700 participants</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -279,7 +307,13 @@ export default function Home() {
                 <span className="projectType">{p.type}</span>
               </div>
               <h3>{p.title}</h3>
-              <p style={{ whiteSpace: "pre-line" }}>{p.description}</p>
+              <ul className="projectDescription">
+                {p.description
+                  .split(/\n\s*\n/)
+                  .map((point, index) => (
+                    <li key={`${p.number}-${index}`}>{point.trim()}</li>
+                  ))}
+              </ul>
               <div className="projectBottom">
                 <div className="chips">
                   {p.stack.map((s) => <span key={s}>{s}</span>)}
@@ -331,7 +365,7 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <p className="sectionKicker">TOOLBOX</p>
-            <h2>What I work with.</h2>
+            <h2>My Skills.</h2>
           </div>
         </div>
         <div className="skillsGrid">
