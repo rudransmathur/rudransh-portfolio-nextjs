@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+const isUserSite = repositoryName === 'rudransmathur.github.io';
+
 const nextConfig = {
   output: 'export',
+  basePath: process.env.GITHUB_ACTIONS && repositoryName && !isUserSite
+    ? `/${repositoryName}`
+    : '',
   images: {
     unoptimized: true,
   },
-  // If your repository is NOT named "rudransmathur.github.io", 
-  // uncomment the line below and replace it with your exact repository name:
-  // basePath: '/your-repository-name', 
 };
 
 module.exports = nextConfig;
