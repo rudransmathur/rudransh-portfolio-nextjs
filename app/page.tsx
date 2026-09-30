@@ -133,7 +133,7 @@ export default function Home() {
 
   useEffect(() => {
     const onScroll = () => {
-          const ids = ["home", "about", "achievements", "work", "experience", "skills", "contact"];
+          const ids = ["home", "about", "achievements", "projects", "experience", "skills", "contact"];
       const current = ids.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
@@ -168,7 +168,7 @@ export default function Home() {
         </button>
 
         <div className={`navLinks ${menuOpen ? "open" : ""}`}>
-          {["home", "about", "achievements", "work", "experience", "skills", "contact"].map((id) => (
+          {["home", "about", "achievements", "projects", "experience", "skills", "contact"].map((id) => (
             <button
               key={id}
               className={active === id ? "active" : ""}
@@ -184,20 +184,34 @@ export default function Home() {
         <div className="heroGrid">
           <div>
             <div className="eyebrow">
-              <span className="pulse" /> AI / ML · RESEARCH · SOFTWARE
+              <span className="pulse" /> AI / ML · Agentic AI · Backend Systems
             </div>
             <h1>
-              I build <em>AI systems</em>
-              <br />
-              that solve real problems.
+              Rudransh Mathur
             </h1>
-            <p className="heroCopy">
-              Mathematics & Computing student at Manipal Institute of Technology
-              and Data Science student at IIT Madras.
-              I build across LLMs, computer vision, deep learning and backend systems.
+            <div className="heroEducation" aria-label="Education">
+              <div className="educationItem">
+                <span>2023 - 2027</span>
+                <strong>B.Tech Mathematics &amp; Computing</strong>
+                <span>Manipal Institute of Technology</span>
+              </div>
+              <div className="educationItem">
+                <span>2023 - 2028</span>
+                <strong>BS Data Science &amp; Applications</strong>
+                <span>IIT Madras</span>
+                <div className="educationCredentials">
+                  <span>Diploma in Programming</span>
+                  <span>Diploma in Data Science</span>
+                </div>
+              </div>
+            </div>
+            <p className="heroCopy heroSummary">
+              I enjoy building practical solutions across AI, backend systems
+              and data, from REST APIs to machine learning and intelligent
+              applications.
             </p>
             <div className="actions">
-              <button className="primary" onClick={() => scrollTo("work")}>
+              <button className="primary" onClick={() => scrollTo("projects")}>
                 Explore my work <span>↗</span>
               </button>
               <a className="secondary" href={linkedin} target="_blank" rel="noreferrer">
@@ -280,23 +294,30 @@ export default function Home() {
               <h3>Engage2Value</h3>
               <div className="achievementResult">
                 <strong>190th</strong>
-                <span>out of 1,700 participants</span>
+                <span>out of 1,700</span>
+              </div>
+            </article>
+            <article className="achievementCard">
+              <div className="achievementTop">
+                <span className="achievementIndex">03</span>
+                <span className="achievementType">KAGGLE COMPETITION</span>
+              </div>
+              <h3>Messy Mashup</h3>
+              <div className="achievementResult">
+                <strong>91%</strong>
+                <span>Accuracy · 200th out of 1,200</span>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="work" className="section workSection">
+      <section id="projects" className="section workSection">
         <div className="sectionHead">
           <div>
-            <p className="sectionKicker">SELECTED WORK</p>
+            <p className="sectionKicker">Projects</p>
             <h2>Things I&apos;ve built.</h2>
           </div>
-          <p className="sectionIntro">
-            A mix of AI research, machine learning experiments and software
-            systems built through internships, competitions and coursework.
-          </p>
         </div>
 
         <div className="projectGrid">
@@ -332,12 +353,8 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <p className="sectionKicker">EXPERIENCE</p>
-            <h2>Research & practice.</h2>
+            <h2>My journey.</h2>
           </div>
-          <p className="sectionIntro">
-            Working on real problems taught me to experiment, measure results
-            and iterate rather than stop at the first working idea.
-          </p>
         </div>
 
         <div className="timeline">

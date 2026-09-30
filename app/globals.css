@@ -140,6 +140,50 @@ h1 em {
   font-size: 17px;
   line-height: 1.8;
 }
+.heroEducation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 670px;
+}
+.educationItem {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-height: 226px;
+  padding: 28px 26px;
+  background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+  border: 1px solid rgba(244,240,231,.14);
+  border-left: 3px solid var(--accent);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.educationItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(213,245,108,.45);
+  background: linear-gradient(145deg, rgba(213,245,108,.08), rgba(255,255,255,.02));
+}
+.educationItem strong { font-size: 20px; line-height: 1.3; letter-spacing: -.035em; }
+.educationItem > span { color: #e2ded5; font-size: 18px; line-height: 1.45; }
+.educationPeriod {
+  color: var(--accent);
+  font: 9px var(--mono);
+  letter-spacing: .12em;
+}
+.educationCredentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.educationCredentials span {
+  padding: 9px 12px;
+  color: #aeb4ae;
+  border: 1px solid rgba(155,196,255,.24);
+  background: rgba(155,196,255,.045);
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+.heroSummary { margin-top: 25px; }
 .actions { display: flex; gap: 12px; margin-top: 38px; }
 .primary, .secondary {
   display: inline-flex;
@@ -243,11 +287,6 @@ h2 {
   font-size: clamp(40px, 5vw, 70px);
   line-height: 1;
   letter-spacing: -.06em;
-}
-.sectionIntro {
-  max-width: 400px;
-  color: var(--muted);
-  line-height: 1.7;
 }
 .projectGrid {
   display: grid;
@@ -374,13 +413,13 @@ h2 {
 .achievementHeader h2 { font-size: clamp(32px, 4vw, 50px); }
 .achievementGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 28px;
 }
 .achievementCard {
   position: relative;
-  min-height: 220px;
+  min-height: 245px;
   padding: 22px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(255,148,120,.08), transparent 55%), var(--surface);
@@ -406,10 +445,14 @@ h2 {
 .achievementTop { display: flex; justify-content: space-between; align-items: center; }
 .achievementIndex { color: var(--accent); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .achievementType { color: #737b7a; font-size: 10px; letter-spacing: .12em; }
-.achievementCard h3 { max-width: 380px; margin: 38px 0 26px; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; }
+.achievementCard h3 { max-width: 380px; margin: 38px 0 26px; font-size: 18px; line-height: 1.25; letter-spacing: -.03em; }
 .achievementResult { display: flex; align-items: baseline; gap: 10px; }
 .achievementResult strong { color: var(--accent2); font-size: 32px; letter-spacing: -.06em; }
 .achievementResult span { color: #89908f; font-size: 11px; line-height: 1.4; }
+
+@media (max-width: 1050px) and (min-width: 801px) {
+  .achievementGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 .contactSection {
   position: relative;
@@ -478,10 +521,13 @@ footer {
   .hero { padding-top: 125px; }
   .heroGrid { grid-template-columns: 1fr; }
   .heroVisual { min-height: 360px; }
+  .educationHeading { margin-top: 34px; }
+  .heroEducation { grid-template-columns: 1fr; }
+  .educationItem { min-height: 0; padding: 23px 21px; }
+  .educationCredentials { grid-column: auto; }
   .scrollHint { display: none; }
   .section { padding: 90px 0; }
   .sectionHead { display: block; }
-  .sectionIntro { margin-top: 22px; }
   .projectGrid { grid-template-columns: 1fr; }
   .projectCard { min-height: 350px; padding: 24px; }
   .darkSection { padding-left: 5vw; padding-right: 5vw; }
